@@ -1,0 +1,55 @@
+/*
+ * Core styles served to all browsers.
+ *
+ * This file is based on normalize.css, see the link for details.
+ *
+ * v3.0.3 | MIT License | github.com/necolas/normalize.css
+ */
+/*
+ * Document Level
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Segoe UI Regular WestEuropean","Segoe UI",Tahoma,Arial,sans-serif;
+  font-size: 1em;
+}
+
+/*
+ * HTML5
+ */
+
+/*
+ * Links
+ */
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover, a:active, a:visited {
+  color: #1e1e1e;
+}
+
+/*
+ * Forms
+ */
+
+@media all {/*
+   * Adds modern css core styles on top of the foundation styles.
+   *//*
+   * HTML5
+   */
+  html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}

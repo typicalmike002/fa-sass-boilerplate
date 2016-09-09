@@ -1,0 +1,29 @@
+{
+  "name": "azure-app-ui",
+  "version": "1.0.0",
+  "description": "An internal application that can be searved as a front end for controlling content saved in a Microsoft Azure database.",
+  "main": "index.html",
+  "scripts": {
+    "install": "npm install && bower install"
+  },
+  "author": "typicalmike002",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.7.4",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-inline-source": "^3.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uncss": "^1.0.6",
+    "matchdep": "^1.0.1",
+    "postcss-reporter": "^1.4.1",
+    "postcss-scss": "^0.3.0",
+    "stylelint": "^7.2.0"
+  }
+}
