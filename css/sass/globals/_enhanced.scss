@@ -1,0 +1,9 @@
+// Adds the correct box sizing to all browsers:
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}

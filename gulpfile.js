@@ -46,21 +46,8 @@ gulp.task('watch', function(){
         livereload: true
     });
 
-    gulp.watch('html/index.html', ['compile:html']);
-    gulp.watch('css/sass/**/*.scss', ['compile:html']);
-});
-
-
-
-gulp.task('compile:html', ['compile:css'], function(){
-    return gulp.src('./html/index.html')
-        .pipe(inlinesource({
-            compress: false
-        }))
-        .pipe(gulp.dest('./'))
-
-        // Reload Window:
-        .pipe(connect.reload());
+    gulp.watch('html/index.html', ['compile:all']);
+    gulp.watch('css/sass/**/*.scss', ['compile:all']);
 });
 
 
@@ -71,14 +58,6 @@ gulp.task('compile:css', function(){
             'css/sass/**/*.scss'
         ])
 
-        // Stylelint scss files:
-        .pipe(postcss([
-                require('stylelint'),
-                require('postcss-reporter')({ clearMessage: true }),
-            ], 
-            { syntax: require('postcss-scss') }
-        ))
-
         // Compiles scss code to pure css:
         .pipe(compass({
             config_file: './config.rb',
@@ -87,17 +66,17 @@ gulp.task('compile:css', function(){
             environment: 'development'
         }))
 
+        // Pass an error handler to compass:
+        .on('error', function(err){
+            console.log(err);
+        })
+
         // While still compiling, add cross browser prefixes 
         // and combine all media queries:
         .pipe(postcss([
             require('autoprefixer')({ browsers: ['last 2 versions'] }),
             require('css-mqpacker')
         ]))
-
-        // Removes unused css selectors:
-        .pipe(uncss({
-            html: ['html/index.html']
-        }))
 
         // Saves an unminified copy of the results:
         .pipe(gulp.dest('./css'))
@@ -115,6 +94,31 @@ gulp.task('compile:css', function(){
         // Saves the minified results:
         .pipe(gulp.dest('./css'))
 });
+
+
+gulp.task('compile:html', ['compile:css'], function(){
+    return gulp.src('./html/index.html')
+        .pipe(inlinesource({
+            compress: false
+        }))
+        .pipe(gulp.dest('./'))
+});
+
+
+
+// Removes unused css from all .css files:
+gulp.task('compile:all', ['compile:html'], function(){
+    return gulp.src('css/*.css')
+        .pipe(uncss({
+            html: ['html/index.html']
+        }))
+        .pipe(gulp.dest('./css'))
+
+        // Reload Window:
+        .pipe(connect.reload())
+});
+
+
 
 
 gulp.task('compile:libraries', function(){

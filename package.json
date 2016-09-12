@@ -1,11 +1,8 @@
 {
-  "name": "azure-app-ui",
+  "name": "fa-sass-boilerplate",
   "version": "1.0.0",
-  "description": "An internal application that can be searved as a front end for controlling content saved in a Microsoft Azure database.",
+  "description": "A quick way to optimize font awesome using SASS and Gulp.",
   "main": "index.html",
-  "scripts": {
-    "install": "npm install && bower install"
-  },
   "author": "typicalmike002",
   "license": "MIT",
   "devDependencies": {
@@ -22,8 +19,5 @@
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
     "matchdep": "^1.0.1",
-    "postcss-reporter": "^1.4.1",
-    "postcss-scss": "^0.3.0",
-    "stylelint": "^7.2.0"
   }
 }

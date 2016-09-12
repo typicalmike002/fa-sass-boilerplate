@@ -1,0 +1,63 @@
+.file-table {
+    padding: 2em;
+}
+
+.file-table_row:hover {
+    background: $color2;
+
+    .file-table_column--ellipsis {
+        visibility: visible;
+    }
+}
+
+.file-table_row--labels {
+    border-bottom: 1px solid $color3;
+
+    div.file-table_column:hover {
+        background: $color2;
+    }
+}
+
+.file-table_row label,
+.file-table_row--labels label {
+    color: $color4;
+    font-size: $second-font_size;
+}
+
+.file-table_column,
+.file-table_column--icon,
+.file-table_column--ellipsis,
+.file-table_column--placeholder {
+    display: inline-block;
+    padding: 0.5em 0.75em;
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.file-table_column {
+    width: 210px;
+}
+
+.file-table_column--icon,
+.file-table_column--ellipsis {
+    text-align: center;
+}
+
+.file-table_column--icon {
+    width: 34px;
+}
+
+.file-table_column--ellipsis {
+    visibility: hidden;
+
+    &:hover {
+        background: $color3;
+    }
+}
+
+.file-table_column--placeholder {
+    width: 32px;
+}
+

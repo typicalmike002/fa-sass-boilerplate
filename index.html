@@ -11,7 +11,8 @@
     <script>!function(e){"use strict";var n=function(n,t,o){function i(e){return a.body?e():void setTimeout(function(){i(e)})}function r(){l.addEventListener&&l.removeEventListener("load",r),l.media=o||"all"}var d,a=e.document,l=a.createElement("link");if(t)d=t;else{var s=(a.body||a.getElementsByTagName("head")[0]).childNodes;d=s[s.length-1]}var f=a.styleSheets;l.rel="stylesheet",l.href=n,l.media="only x",i(function(){d.parentNode.insertBefore(l,t?d:d.nextSibling)});var u=function(e){for(var n=l.href,t=f.length;t--;)if(f[t].href===n)return e();setTimeout(function(){u(e)})};return l.addEventListener&&l.addEventListener("load",r),l.onloadcssdefined=u,u(r),l};"undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this);</script>
 
     <!-- styles -->
-    <style type="text/css">html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}body{margin:0 auto;font-family:Segoe UI Regular WestEuropean,Segoe UI,Tahoma,Arial,sans-serif;font-size:1em}a{color:#444;text-decoration:none}a:active,a:hover,a:visited{color:#1e1e1e}@media all{html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}}</style>
+    <style type="text/css">/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */html{font-family:Segoe UI Regular WestEuropean,Segoe UI,Tahoma,Arial,sans-serif;font-size:.875em;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{color:#333;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}@media all{html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}}</style>
     <script>loadCSS('css/style.min.css');</script>
     <noscript><link rel="stylesheet" href="css/style.min.css" type="text/css"></noscript>
 </head>
@@ -19,19 +20,343 @@
 
     <div class="side-content">
         <ul class="side-content_list">
-            <li class="side-content_item"><a href="">Home</a></li>
-            <li class="side-content_item"><a href="">Notebook</a></li>
-            <li class="side-content_item"><a href="">Documents</a></li>
-            <li class="side-content_item"><a href="">Site Contents</a></li>
-            <li class="side-content_item"><a href="">Recycle bin</a></li>
+            <li class="side-content_item--current">
+                <a href="">Home</a>
+            </li>
+            <li class="side-content_item">
+                <a href="">Notebook</a>
+            </li>
+            <li class="side-content_item">
+                <a href="">Documents</a>
+            </li>
+            <li class="side-content_item">
+                <a href="">Site Contents</a>
+            </li>
+            <li class="side-content_item">
+                <a href="">Recycle bin</a>
+            </li>
+            <li class="side-content_item">
+                <a href="">
+                    <i class="fa fa-pencil" area-hidden="true"></i>
+                    Edit links
+                </a>
+            </li>
         </ul>
     </div>
 
     <div class="main-content">
+        
+        <!-- A Table for viewing files -->
         <div class="file-table">
-            <div class="file-table_icon">
-                <i class="fa fa-file-o" aria-hidden="true"></i>
+
+            <!-- The first row serves as labels for the file table. -->
+            <div class="file-table_row--labels">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Name</label>
+                </div>
+                <div class="file-table_column--placeholder">
+                    <!-- This section is left blank to match the content width. -->
+                </div>
+                <div class="file-table_column">
+                    <label>Type</label>
+                </div>
+                <div class="file-table_column">
+                    <label>Items</label>
+                </div>
+                <div class="file-table_column">
+                    <label>Modified</label>
+                </div>
             </div>
+
+            <!-- Example of an item named "Documents" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Documents</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Document library</label>
+                </div>
+                <div class="file-table_column">
+                    <label>0</label>
+                </div>
+                <div class="file-table_column">
+                    <label>7/8/2016 11:02AM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Form Templates" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Form Templates</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Document library</label>
+                </div>
+                <div class="file-table_column">
+                    <label>0</label>
+                </div>
+                <div class="file-table_column">
+                    <label>7/8/2016 1:02PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Site Assets" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Site Assets</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Document library</label>
+                </div>
+                <div class="file-table_column">
+                    <label>6</label>
+                </div>
+                <div class="file-table_column">
+                    <label>9/9/2016 3:42PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Site Collection Documents" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Site Collection Documents</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Document library</label>
+                </div>
+                <div class="file-table_column">
+                    <label>0</label>
+                </div>
+                <div class="file-table_column">
+                    <label>9/11/2016 3:20 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Style Library" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Style Library</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Document library</label>
+                </div>
+                <div class="file-table_column">
+                    <label>628</label>
+                </div>
+                <div class="file-table_column">
+                    <label>6/30/2016 4:10 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Content and Structure Reports" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Content and Structure Reports</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>7</label>
+                </div>
+                <div class="file-table_column">
+                    <label>8/30/2016 4:10 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Reusable Content" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Reusable Content</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>3</label>
+                </div>
+                <div class="file-table_column">
+                    <label>8/30/2016 4:54 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Events" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Events</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>Event List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>8</label>
+                </div>
+                <div class="file-table_column">
+                    <label>8/30/2016 4:54 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Images" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Images</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>0</label>
+                </div>
+                <div class="file-table_column">
+                    <label>8/30/2016 4:54 PM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "MicroFeed" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">MicroFeed</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>2</label>
+                </div>
+                <div class="file-table_column">
+                    <label>6/30/2016 11:02 AM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Pages" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Pages</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>3</label>
+                </div>
+                <div class="file-table_column">
+                    <label>6/30/2016 11:02 AM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Power BI" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Power BI</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>App</label>
+                </div>
+                <div class="file-table_column">
+                    <label></label>
+                </div>
+                <div class="file-table_column">
+                    <label>9/21/2016 11:45 AM</label>
+                </div>
+            </div>
+
+            <!-- Example of an item named "Site Collection Images" -->
+            <div class="file-table_row">
+                <div class="file-table_column--icon">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <a href="#">Site Collection Images</a>
+                </div>
+                <div class="file-table_column--ellipsis">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </div>
+                <div class="file-table_column">
+                    <label>List</label>
+                </div>
+                <div class="file-table_column">
+                    <label>6</label>
+                </div>
+                <div class="file-table_column">
+                    <label>5/22/2016 8:00 PM</label>
+                </div>
+            </div>
+
         </div>
     </div>
 
