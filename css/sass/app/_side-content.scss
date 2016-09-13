@@ -3,23 +3,23 @@
     float: left;
 }
 
-ul.side-content_list {
+.side-content_list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-li.side-content_item > a,
-li.side-content_item--current > a {
+.side-content_item > a,
+.side-content_item--current > a {
     display: block;
     padding: 0.594em 1.25em;
 }
 
-li.side-content_item > a:hover {
+.side-content_item > a:hover {
     background: $color2;
 }
 
-li.side-content_item--current > a {
+.side-content_item--current > a {
     background: $color2;
     border-left: 2px solid $color1;
 

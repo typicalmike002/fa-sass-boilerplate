@@ -1,5 +1,27 @@
+/**
+ * _file-table.scss
+ *
+ * - Styles a table that contains files, it's
+ *   look and feel have been made to match sharepoint.
+ *
+ * - Block:     .file-table        (full table container)
+ *
+ * - Elements:  .file-table_row    (single row container)
+ *              .file-table_column (single column container)
+ */
+
+table.file-table {
+    display: block;
+    border-collapse: collapse;
+}
+
 .file-table {
     padding: 2em;
+}
+
+.file-table_row,
+.file-table_row--labels {
+    display: inline-block;
 }
 
 .file-table_row:hover {
@@ -11,9 +33,10 @@
 }
 
 .file-table_row--labels {
+
     border-bottom: 1px solid $color3;
 
-    div.file-table_column:hover {
+    .file-table_column:hover {
         background: $color2;
     }
 }
@@ -26,8 +49,7 @@
 
 .file-table_column,
 .file-table_column--icon,
-.file-table_column--ellipsis,
-.file-table_column--placeholder {
+.file-table_column--ellipsis {
     display: inline-block;
     padding: 0.5em 0.75em;
 
@@ -37,16 +59,13 @@
 }
 
 .file-table_column {
-    width: 210px;
+    width: 210px; // 210px
 }
 
 .file-table_column--icon,
 .file-table_column--ellipsis {
     text-align: center;
-}
-
-.file-table_column--icon {
-    width: 34px;
+    width: 33px;
 }
 
 .file-table_column--ellipsis {
@@ -57,7 +76,26 @@
     }
 }
 
-.file-table_column--placeholder {
-    width: 32px;
+.file-table_column:last-child {
+    display: none;
+
+    @media screen and (min-width: $desktopWidth){
+        display: inline-block;
+    }
 }
 
+.file-table_column:nth-last-child(2) {
+    display: none;
+
+    @media screen and (min-width: $tabletWidth){
+        display: inline-block;
+    }
+}
+
+.file-table_column:nth-last-child(3) {
+    display: none;
+
+    @media screen and (min-width: $mobileWidth){
+        display: inline-block;
+    }
+}

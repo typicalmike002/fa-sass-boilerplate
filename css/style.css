@@ -60,8 +60,29 @@
   content: "";
 }
 
+/**
+ * _file-table.scss
+ *
+ * - Styles a table that contains files, it's
+ *   look and feel have been made to match sharepoint.
+ *
+ * - Block:     .file-table        (full table container)
+ *
+ * - Elements:  .file-table_row    (single row container)
+ *              .file-table_column (single column container)
+ */
+table.file-table {
+  display: block;
+  border-collapse: collapse;
+}
+
 .file-table {
   padding: 2em;
+}
+
+.file-table_row,
+.file-table_row--labels {
+  display: inline-block;
 }
 
 .file-table_row:hover {
@@ -74,7 +95,7 @@
 .file-table_row--labels {
   border-bottom: 1px solid #eaeaea;
 }
-.file-table_row--labels div.file-table_column:hover {
+.file-table_row--labels .file-table_column:hover {
   background: #f4f4f4;
 }
 
@@ -86,8 +107,7 @@
 
 .file-table_column,
 .file-table_column--icon,
-.file-table_column--ellipsis,
-.file-table_column--placeholder {
+.file-table_column--ellipsis {
   display: inline-block;
   padding: 0.5em 0.75em;
 }
@@ -102,10 +122,7 @@
 .file-table_column--icon,
 .file-table_column--ellipsis {
   text-align: center;
-}
-
-.file-table_column--icon {
-  width: 34px;
+  width: 33px;
 }
 
 .file-table_column--ellipsis {
@@ -115,8 +132,16 @@
   background: #eaeaea;
 }
 
-.file-table_column--placeholder {
-  width: 32px;
+.file-table_column:last-child {
+  display: none;
+}
+
+.file-table_column:nth-last-child(2) {
+  display: none;
+}
+
+.file-table_column:nth-last-child(3) {
+  display: none;
 }
 
 .side-content {
@@ -124,31 +149,50 @@
   float: left;
 }
 
-ul.side-content_list {
+.side-content_list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-li.side-content_item > a,
-li.side-content_item--current > a {
+.side-content_item > a,
+.side-content_item--current > a {
   display: block;
   padding: 0.594em 1.25em;
 }
 
-li.side-content_item > a:hover {
+.side-content_item > a:hover {
   background: #f4f4f4;
 }
 
-li.side-content_item--current > a {
+.side-content_item--current > a {
   background: #f4f4f4;
   border-left: 2px solid #333333;
 }
-li.side-content_item--current > a:hover {
+.side-content_item--current > a:hover {
   background: #eaeaea;
 }
 
 .main-content {
   float: left;
+  max-width: 983px;
   border-left: 1px solid #eaeaea;
+}
+
+@media screen and (min-width: 1000px){
+  .file-table_column:last-child{
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 780px){
+  .file-table_column:nth-last-child(2){
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 600px){
+  .file-table_column:nth-last-child(3){
+    display: inline-block;
+  }
 }
